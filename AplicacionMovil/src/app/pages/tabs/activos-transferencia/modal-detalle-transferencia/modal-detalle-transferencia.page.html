@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Detalle traslado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-item>
+    <ion-label position="stacked">Nombre del activo</ion-label>
+    <ion-input readonly aria-label="Nombre del activo" [value]="transfer.assetname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Desde</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label position="stacked">Local</ion-label>
+          <ion-input readonly aria-label="Local" [value]="transfer.companylocalprevious"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">Área</ion-label>
+          <ion-input readonly aria-label="Área" [value]="transfer.areaprevious"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">Ambiente</ion-label>
+          <ion-input readonly aria-label="Ambiente" [value]="transfer.previouslocation"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label position="stacked">Piso</ion-label>
+          <ion-input readonly aria-label="Piso" [value]="previousFloor"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">Detalle del ambiente</ion-label>
+          <ion-input readonly aria-label="Detalle del ambiente" [value]="previousEnvironmentDetail"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label position="stacked">Centro de Costo</ion-label>
+          <ion-input readonly aria-label="Centro de Costo" [value]="transfer.previouscostcenter"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <!-- <ion-item>
+    <ion-label position="stacked">Ubicación</ion-label>
+    <ion-input readonly aria-label="Ubicación" [value]="transfer.previouslocation"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Centro de Costo</ion-label>
+    <ion-input readonly aria-label="Centro de Costo" [value]="transfer.previouscostcenter"></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-label class="titulo-separador">Hasta</ion-label>
+  </ion-item>
+  <ion-item style="align-items: center;">
+    <ion-label position="stacked">Ubicación</ion-label>
+    <ion-input readonly aria-label="Ubicación" [value]="transfer.finallocation"></ion-input>
+    <ion-icon style="color: #3880ff;" name="eye" slot="end" (click)="openModal()"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Centro de Costo</ion-label>
+    <ion-input readonly aria-label="Centro de Costo" [value]="transfer.finalcostcenter"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Tipo de traslado</ion-label>
+    <ion-input readonly aria-label="Tipo de traslado" [value]="transfer.transfertype"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Proyecto</ion-label>
+    <ion-input readonly aria-label="Proyecto" [value]="transfer.project"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea readonly label="Información adicional" labelPlacement="floating" [value]="transfer.additionalInformation"></ion-textarea>
+  </ion-item>
+  <div class="button-container">
+    <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,24 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.masivo-label {
+  flex: 2;
+}
+
+
+.masivo-boton {
+  flex: 1;
+}
+
+.activos-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.titulo-separador {
+  font-weight: bold;
+  font-size: large;
+}

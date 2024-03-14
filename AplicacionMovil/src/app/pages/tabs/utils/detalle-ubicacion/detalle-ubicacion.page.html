@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Detalle de ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <p>Código: {{ubicacion?.code}}</p>
+        <p>Nombre: {{ubicacion?.name}}</p>
+        <p>Tipo: {{ubicacion?.type}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <strong>Sede</strong>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>Nombre: {{ubicacion?.companyLocal?.name}}</p>
+            </ion-col>
+            <ion-col>
+              <p>Dirección: {{ubicacion?.companyLocal?.street}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <strong>Area</strong>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>Nombre: {{ubicacion?.area?.name}}</p>
+            </ion-col>
+            <ion-col>
+              <p>Responsable: {{ubicacion?.area?.responsible?.name}} {{ubicacion?.area?.responsible?.lastName}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <strong>Ambiente</strong>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>Nombre: {{ubicacion?.enviroment?.name}}</p>
+            </ion-col>
+            <ion-col>
+              <p>Responsable: {{ubicacion?.enviroment?.responsible?.name}} {{ubicacion?.enviroment?.responsible?.lastName}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p>Oficina: {{ubicacion?.enviroment?.officeNumber}}</p>
+            </ion-col>
+            <ion-col>
+              <p>Piso: {{ubicacion?.enviroment?.floor}}</p>
+            </ion-col>
+            <ion-col>
+              <p>Codigo de plano: {{ubicacion?.enviroment?.planeCode}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="button-container">
+    <ion-button (click)="cerrar()">Cerrar</ion-button>
+  </div>
+</ion-content>

@@ -24,3 +24,34 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.ubicacion-modal {
+  --height: 70%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+.ubicacion-modal::part(backdrop) {
+  opacity: 0.32 !important;
+}
+
+.ubicacion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}
+
+.ubicacion-modal-elegir {
+  --height: 35%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+.ubicacion-modal-elegir::part(backdrop) {
+  opacity: 0.32 !important;
+}
+
+.ubicacion-modal-elegir ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}

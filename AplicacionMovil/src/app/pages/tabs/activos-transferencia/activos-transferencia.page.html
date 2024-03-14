@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Traslado de activos</ion-title>
+    <ion-buttons slot="end" class="icono-perfil">
+      <ion-icon name="person-circle"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Traslado de activos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button class="boton-agregar" id="open-modal" expand="block" (click)="agregarTransferencia()">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Nuevo traslado
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button class="boton-masivo" id="open-modal2" expand="block" (click)="agregarMasivo()">
+            <ion-icon slot="start" name="apps"></ion-icon>
+            Traslado masivo
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-fab>
+  <ion-list>
+    <ion-card *ngFor="let transfer of transfers" (click)="verDetalle(transfer)"> 
+      <ion-grid>
+        <ion-row>
+          <ion-col class="icono-transferencia" size="auto">
+            <ion-icon 
+            [name]="getIconName(transfer.transfertype)"
+            [color]="getIconColor(transfer.transfertype)"
+          ></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-card-header>
+              <ion-card-title class="titulo-transferencia">{{ transfer.assetcode }}-{{ transfer.assetname }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p><strong>Fecha traslado:</strong> {{ transfer.datetransfer }}</p>
+              <p><strong>Ubicación inicial:</strong> {{ transfer.previouslocation }}</p>
+              <p><strong>Ubicación final:</strong> {{transfer.finallocation }}</p>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </ion-card>
+  </ion-list>
+</ion-content>

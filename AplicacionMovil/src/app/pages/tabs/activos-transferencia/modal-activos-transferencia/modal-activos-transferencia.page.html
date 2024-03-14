@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Nuevo traslado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <form [formGroup]="transferForm" autocomplete="off">
+    <ion-item>
+      <ion-label class="masivo-label">Activo: {{activoSeleccionado?.assetname}}</ion-label>
+      <ion-button class="masivo-boton" (click)="abrirModal()">
+        {{ activoSeleccionado ? 'Cambiar' : 'Agregar' }}
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Desde</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Local</ion-label>
+            <ion-input formControlName="companylocalprevious" type="text" readonly aria-label="Local"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Área</ion-label>
+            <ion-input formControlName="areaprevious" type="text" readonly aria-label="Área"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Ambiente</ion-label>
+            <ion-input formControlName="previouslocation" type="text" readonly aria-label="Ambiente"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Piso</ion-label>
+            <ion-input formControlName="floorprevious" type="text" readonly aria-label="Piso"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Detalle del ambiente</ion-label>
+            <ion-input formControlName="enviromentdetailprevious" type="text" readonly aria-label="Detalle del ambiente"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Centro de Costo</ion-label>
+            <ion-input formControlName="previouscostcenter" type="text" readonly aria-label="Centro de Costo"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-label class="titulo-separador">Hasta</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Ubicación" readonly ></ion-input>
+      <ion-icon style="color: #3880ff;" [name]="ubicacionSeleccionada ? 'swap-horizontal-outline' : 'add'" slot="end" (click)="elegirUbicacion()"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Local</ion-label>
+            <ion-input formControlName="companylocalfinal" type="text" readonly aria-label="Local"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Área</ion-label>
+            <ion-input formControlName="areafinal" type="text" readonly aria-label="Área"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Ambiente</ion-label>
+            <ion-input formControlName="finallocation" type="text" readonly aria-label="Ambiente"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Piso</ion-label>
+            <ion-input formControlName="floorfinal" type="text" readonly aria-label="Piso"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label position="stacked">Detalle del ambiente</ion-label>
+            <ion-input formControlName="enviromentdetailfinal" type="text" readonly aria-label="Detalle del ambiente"></ion-input>
+          </ion-col>
+          <ion-col>
+            <!-- <ion-label position="stacked">Centro de Costo</ion-label>
+            <ion-input formControlName="finalcostcenter" type="text" readonly aria-label="Centro de Costo"></ion-input> -->
+            <ion-select formControlName="finalcostcenter" label="Centro de Costo" label-placement="floating">
+              <ion-select-option *ngFor="let costCenter of costCenters" [value]="costCenter.name">{{ costCenter.name }}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-select formControlName="finalcostcenter" label="Centro de Costo" label-placement="floating">
+        <ion-select-option *ngFor="let costCenter of costCenters" [value]="costCenter.name">{{ costCenter.name }}</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+    <ion-item>
+      <ion-select formControlName="transferTypeId" label="Tipo de traslado" label-placement="floating" (ionChange)="onTransferChange($event)">
+        <ion-select-option *ngFor="let tt of transferTypes" [value]="tt.id">{{ tt.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="projectId" label="Proyecto" label-placement="floating" (ionChange)="onProjectChange($event)">
+        <ion-select-option *ngFor="let p of projects" [value]="p.id">{{ p.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-textarea formControlName="additionalInformation" label="Información adicional" labelPlacement="floating"></ion-textarea>
+    </ion-item>
+    <div class="button-container">
+      <ion-button fill="outline" (click)="cancelar()">Cancelar</ion-button>
+      <ion-button 
+        type="submit"
+        (click)="guardar()"
+        [disabled]="transferForm.invalid"
+      >Confirmar</ion-button>
+    </div>
+  </form>
+</ion-content>

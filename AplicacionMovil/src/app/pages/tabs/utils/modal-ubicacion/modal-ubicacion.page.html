@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelChanges()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title class="titulo-modal">Ubicación</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmChanges()">Hecho</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <form [formGroup]="ubicacionForm" autocomplete="off">
+    <ion-item>
+      <ion-select formControlName="local" label="Seleccione local" label-placement="floating" (ionChange)="onLocalChange($event)">
+        <ion-select-option *ngFor="let local of companyLocals$ | async" [value]="local">{{ local.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="area" label="Seleccione área" label-placement="floating" (ionChange)="onAreaChange($event)">
+        <ion-select-option *ngFor="let area of areas$ | async" [value]="area">{{ area.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="piso" label="Seleccione piso" label-placement="floating" (ionChange)="onFloorChange($event)">
+        <ion-select-option *ngFor="let floor of floors" [value]="floor">{{ floor }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="ambiente" label="Seleccione ambiente" label-placement="floating" (ionChange)="onEnvironmentChange($event)">
+        <ion-select-option *ngFor="let env of environments$ | async" [value]="env">{{ env.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+</ion-content>
