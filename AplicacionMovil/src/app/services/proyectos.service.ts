@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProyectosService {
 
-  private baseUrl = 'http://localhost:3000/project';
+  private baseUrl = 'http://192.168.126.31/project';
 
   constructor(private http: HttpClient) { }
 

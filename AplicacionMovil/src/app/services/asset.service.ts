@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AssetService {
-  private baseUrl = 'http://localhost:3000/asset';
+  private baseUrl = 'http://192.168.126.31/asset';
 
   constructor(private http: HttpClient) { }
 

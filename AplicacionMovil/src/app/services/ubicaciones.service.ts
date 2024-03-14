@@ -10,7 +10,7 @@ import { ListLocationDto } from '../modelos/location.modelos';
   providedIn: 'root'
 })
 export class UbicacionesService {
-  private baseUrl = 'http://localhost:3000/location';
+  private baseUrl = 'http://192.168.126.31/location';
 
   constructor(private http: HttpClient) { }
 

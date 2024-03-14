@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TransferService {
 
-  private baseUrl = 'http://localhost:3000/transfer';
+  private baseUrl = 'http://192.168.126.31/transfer';
   constructor(private http: HttpClient) { }
 
   getAllAssetTransfer(dto: any): Observable<any[]> {

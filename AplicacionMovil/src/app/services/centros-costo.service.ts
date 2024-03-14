@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CentrosCostoService {
 
-  private baseUrl = 'http://localhost:3000/cost-center';
+  private baseUrl = 'http://192.168.126.31/cost-center';
 
   constructor(private http: HttpClient) { }
 
